@@ -10,6 +10,7 @@ from magicgui import magic_factory
 from skimage.transform import (
         AffineTransform,
         EuclideanTransform,
+        ProjectiveTransform,
         SimilarityTransform,
         )
 
@@ -17,6 +18,7 @@ from skimage.transform import (
 class AffineTransformChoices(Enum):
     affine = AffineTransform
     Euclidean = EuclideanTransform
+    projective = ProjectiveTransform
     similarity = SimilarityTransform
 
 
