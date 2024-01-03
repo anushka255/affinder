@@ -49,9 +49,9 @@ def next_layer_callback(
     n0, n1 = len(pts0), len(pts1)
     ndim = pts0.shape[1]
     if reference_points_layer in viewer.layers.selection:
-        if n0 < ndim + 1:
+        if n0 < ndim + 2:
             return
-        if n0 == ndim + 1:
+        if n0 == ndim + 2:
             reset_view(viewer, moving_image_layer)
         if n0 > n1:
             viewer.layers.selection.active = moving_points_layer
