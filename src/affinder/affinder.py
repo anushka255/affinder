@@ -50,10 +50,13 @@ def next_layer_callback(
     pts0, pts1 = reference_points_layer.data, moving_points_layer.data
     n0, n1 = len(pts0), len(pts1)
     ndim = pts0.shape[1]
+
+    min_points_required = 4 if model_class == ProjectiveTransform else ndim + 1
+
     if reference_points_layer in viewer.layers.selection:
-        if n0 < ndim + 2:
+        if n0 < min_points_required:
             return
-        if n0 == ndim + 2:
+        if n0 == min_points_required:
             reset_view(viewer, moving_image_layer)
         if n0 > n1:
             viewer.layers.selection.active = moving_points_layer
